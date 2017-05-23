@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    input{
+        font-size: 16px;
+        color:red;
+    }
+
+    button{
+        width: 100px;
+        height: 30px;
+        font-size: 20px;
+
+    }
+
+</style>
+</head>
+
+<body>
+<h1>添加或者编辑用户</h1>
+<hr>
+<form class="form-horizontal" role="form" method="post" action="/save_student">
+    <input type="hidden" name="id" value="{{ stu[0] }}">
+
+    <div class="form-group">
+        <div class="col-sm-9">
+            姓名: <input type="text" name="xm" value="{{ stu[1] }}"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-9">
+            年龄: <input type="text" name="age" value="{{ stu[2] }}"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <button onclick="javascript:submit()">
+            Save
+        </button>
+    </div>
+</form>
+</body>
+</html>
