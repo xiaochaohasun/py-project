@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "xhtml11.dtd">
+<html debug="true"><head>
+<title>图表统计</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="/js/highcharts/jquery.js"></script>
+<script src="/js/highcharts/highcharts.js"></script>
+<script type="text/javascript">
+	var title='各城市的访问量';
+	var subtitle='按日志记录次数';
+	var zones={{zones|safe}};
+	var counts={{counts}};
+(function($){ // encapsulate jQuery
+var chart;
+$(document).ready(function() {
+	chart = new Highcharts.Chart({
+		chart: {
+			renderTo: 'container',
+			type: 'column'
+		},
+		title: {
+			text: title
+		},
+		subtitle: {
+			text: subtitle
+		},
+		xAxis: {
+			categories:	zones
+
+		},
+		yAxis: {
+			min: 0,
+			title: {
+				text: '数据'
+			}
+		},
+		legend: {
+			layout: 'vertical',
+			backgroundColor: '#FFFFFF',
+			align: 'left',
+			verticalAlign: 'top',
+			x: 100,
+			y: 70,
+			floating: true,
+			shadow: true
+		},
+		tooltip: {
+			formatter: function() {
+				return ''+
+					this.x +': '+ this.y +' 单位';
+			}
+		},
+		plotOptions: {
+			column: {
+				pointPadding: 0.2,
+				borderWidth: 0
+			}
+		},
+			series: [{
+			name: '访问次数',
+			data: counts
+
+		}, ]
+	});
+});
+
+})(jQuery);
+</script>
+<body>
+	<div style="margin: 0 1em">
+		<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+	</div>
+</div>
+</body></html>
