@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    .head2 {
+        margin: 0 auto;
+        height: 20px;
+        margin: 0px;
+        width:900px;
+
+        #border: 1px solid red;
+    }
+
+    .user2 {
+        color: red;
+        font-size: 15px;
+    }
+
+    .bn {
+        width: 100px;
+        border: 1px dotted black;
+        text-align: center;
+        float: right;
+    }
+
+</style>
+<script>
+    $(function () {
+        $("#cart").click(
+                function () {
+                    window.location.href = "/cart/list";
+                }
+        );
+    });
+</script>
+<body>
+
+<div class="list">
+
+    <div class="head2">
+        <div class="bn" id="cart"><a href="/cart/list">购物车</a></div>
+        <div class="bn">用户中心</div>
+        <div class="bn"><a href="/product/list">产品页</a></div>
+        <div class="bn">
+            欢迎您:<span class="user2">{{cname}}</span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

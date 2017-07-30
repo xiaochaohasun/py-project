@@ -1,0 +1,81 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>register-pywebsite</title>
+    <style>
+
+        * {
+            margin: 10px auto;
+            color: navy;
+        }
+
+        .main {
+            margin: 0 auto;
+            width: 500px;
+        }
+
+        .title {
+            float: left;
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .tx {
+            float: left;
+            width: 250px;
+            height: 40px;
+            border: 1px dashed blue;
+            font-size: 20px;
+            color: green;
+        }
+
+        .bn {
+            float: left;
+            width: 250px;
+            height: 40px;
+            border: 1px solid black;
+            font-size: 20px;
+            background-color: green;
+        }
+        .head{
+            float: left;
+            color: brown;
+            font-size: 40px;
+        }
+
+        .msg {
+            float: left;
+            width: 100%;
+            height: 30px;
+            font-size: 25px;
+            color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<form action="/regist">
+    <div class="main">
+        <div class="head" s>welcome to register PyWebsite</div><div style="clear: both"></div>
+        <div class="msg" s>{{msg}}</div><div style="clear: both"></div>
+        <div class="title">登录名</div>
+        <input class="tx" type="text" value="" name="cname">
+        <div style="clear: both"></div>
+
+        <div class="title">密码</div>
+        <input class="tx" type="password" value="" name="cpwd">
+        <div style="clear: both"></div>
+
+        <div class="title">确认密码</div>
+        <input class="tx" type="password" value="" name="cpwd2">
+        <div style="clear: both"></div>
+
+        <div class="title"></div>
+        <input class="bn" type="submit" value="注册">
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车列表-PyWebsite</title>
+</head>
+<script type="text/javascript" src="/res/js/jquery-3.1.0.min.js">
+</script>
+<script>
+    $(function(){
+        $('#account').click(function(){
+             $.ajax({
+                 type: "POST",
+                 url: "/bill/add",
+                 data: {},
+                 dataType: "json",
+                 success: function(result){
+                            if (result.str=="true"){
+                                    alert("successful! "+"支付成功,订单编号:"+result.billnum+"!");
+                                }
+                                else {
+                                    alert("create bill faild!please try again!");
+                                }
+                          }
+             });
+        });
+    });
+
+</script>
+
+
+<style>
+
+    body, * {
+    margin: 0px auto;
+    padding:0px;
+    color: navy;
+    }
+
+    .top {
+    margin: 0 auto;
+    width: 700px;
+    border: 1px solid red;
+    overflow: hidden;
+    }
+
+    .pic_head {
+    width: 500px;
+    height: 130px;
+    }
+
+    .row {
+    margin: 5px auto;
+    width: 700px;
+    #border: 1px solid red;
+    overflow: hidden;
+    line-height: 40px;
+    }
+
+    .t1, .t2, .t3, .t4, .t5 {
+    float: left;
+    #border: 1px solid black;
+    margin: 5px;
+    font-size: 15px;
+    }
+
+    .t1 {
+    width: 200px;
+    color: darkred;
+
+    }
+
+    .t2 {
+    width: 40px;
+    color: green;
+    }
+
+    .t3 {
+    width: 100px;
+    color: black;
+    }
+
+    .t4 {
+    width: 100px;
+    color: red;
+    }
+
+    .t5 {
+    width: 30px;
+    color: black;
+    }
+
+    .row img {
+    width: 60px;
+    float: left;
+    }
+
+    <!--#account {-->
+    <!--float: right;-->
+    <!--width: 150px;-->
+    <!--height: 30px;-->
+    <!--background-color: black;-->
+    <!--font-size: 25px;-->
+    <!--color: white;-->
+    <!--text-align: center;-->
+    <!--line-height: 30px;-->
+    <!--border: 1px dashed yellow;-->
+    <!--margin: 0 auto;-->
+    <!--}-->
+
+    .total {
+    float: right;
+    width: 200px;
+    height: 30px;
+    font-size: 25px;
+    color: red;
+    text-align: right;
+    line-height: 30px;
+    border: 1px dashed yellow;
+    margin: 0 auto;
+    }
+</style>
+
+<body>
+{% include 'product_top.html' %}
+{% include 'product_head.html' %}
+<div id="top">
+    {%for row in rows %}
+    <div class="row">
+        <img src="/res/product/{{row['pic']}}">
+
+        <div class="t1"><a href="/product/detail/{{row['pid']}}">{{row['pname']}}</a></div>
+        <div class="t2">{{row['pcount']}}件</div>
+        <div class="t3">{{row['price']}}元/件</div>
+        <div class="t4">共{{row['total']}}元</div>
+        <div class="t5"><a href="/cart/del?pid={{row['pid']}}">删除</a></div>
+        <div style="clear: both"></div>
+    </div>
+    {% endfor %}
+    <div class="row">
+        <div class="total">共计:{{total}}元</div>
+    </div>
+    <div class="row">
+        <div id="account"><a href="/bill/add">立即结算</a></div>
+        <!--<input type="button" value="立即结算" id="account">-->
+    </div>
+</div>
+</body>
+
+
+</html>

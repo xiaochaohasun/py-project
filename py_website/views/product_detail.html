@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    body,*{
+        margin:0 auto;
+        padding:0;
+    }
+    .d1{
+        width:890px;
+        overflow:hidden;
+
+    }
+    .d2{
+        width:900px;
+    }
+    .d3{
+        width:400px;
+        height:320px;
+        border:1px solid red;
+        text-align:center;
+        float:left;
+    }
+    .d4{
+        width:480px;
+        height:320px;
+        border:1px solid red;
+        text-align:center;
+        float:left;
+    }
+    .pimge{
+        width:300px;
+    }
+
+</style>
+
+<script type="text/javascript" src="/res/js/jquery-3.1.0.min.js">
+</script>
+<script>
+    $(function(){
+        $('#addcart').click(function(){
+             $.ajax({
+                 type: "POST",
+                 url: "/cart/add",
+                 data: {pid:$("#pid").val(),pcount:$("#pcount").val()},
+                 dataType: "json",
+                 success: function(result){
+                            if (result.str=="true"){
+                                alert("successful! "+"U have "+result.pcount+" productes!");
+                            }
+                            else {
+                                alert("add cart faild!please try again!");
+                            }
+                          }
+             });
+        });
+    });
+</script>
+
+<body>
+{% include 'product_top.html' %}
+{% include 'product_head.html' %}
+
+<div class="d1">
+    <div class="d2">
+        <div class="d3">
+             <img class="pimge" src="/res/product/{{product[3]}}">
+        </div>
+        <div class="d4"><br>
+            <input type="hidden" id="pid" name="pid" value="{{product[0]}}">
+            产品名称:{{ product[1] }}<br><br>
+            产品描述:{{ product[2] }}<br><br>
+            产品价格:{{ product[4] }}￥<br><br>
+            购买数量:<input type="text" id="pcount" name="pcount" value="1" style="width:30px;"><br><br><br>
+            <input type="button" value="收藏" name="favoriate">&nbsp;&nbsp;&nbsp; <input type="button" value="加入购物车" id="addcart">
+        </div>
+        <div style="clear:both"></div>
+    </div>
+</div>
+
+
+{% include 'product_foot.html' %}
+</body>
+</html>

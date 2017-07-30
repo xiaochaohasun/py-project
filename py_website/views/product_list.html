@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    body,*{
+        margin:0 auto;
+        padding:0;
+    }
+    .d1{
+        width:890px;
+        overflow:hidden;
+
+    }
+    .d2{
+        width:900px;
+    }
+    .d3{
+        width:220px;
+        border:1px solid red;
+        text-align:center;
+        float:left;
+    }
+    .pimge{
+        width:160px;
+    }
+</style>
+<script>
+    function detail(id){
+        document.location="/product/detail/"+id;
+    }
+
+</script>
+<body>
+{% include 'product_top.html' %}
+{% include 'product_head.html' %}
+
+<div class="d1">
+    <div class="d2">
+        <div class="d3">
+             <img class="pimge" src="/res/product/{{products[0][3]}}" onclick="detail({{products[0][0]}})">
+             <br>{{ products[0][1] }}
+        </div>
+        <div class="d3">
+             <img class="pimge" src="/res/product/{{products[1][3]}}" onclick="detail({{products[1][0]}})">
+             <br>{{ products[1][1] }}
+        </div>
+        <div class="d3">
+             <img class="pimge" src="/res/product/{{products[2][3]}}" onclick="detail({{products[2][0]}})">
+             <br>{{ products[2][1] }}
+        </div>
+        <div class="d3">
+            <img class="pimge" src="/res/product/{{products[3][3]}}" onclick="detail({{products[3][0]}})">
+            <br>{{ products[3][1] }}
+        </div>
+        <div style="clear:both"></div>
+    </div>
+</div>
+
+<div class="d1">
+    <div class="d2">
+        <div class="d3">
+             <img class="pimge" src="/res/product/{{products[4][3]}}" onclick="detail({{products[4][0]}})">
+             <br>{{ products[4][1] }}
+        </div>
+        <div class="d3">
+             <img class="pimge" src="/res/product/{{products[5][3]}}" onclick="detail({{products[5][0]}})">
+             <br>{{ products[5][1] }}
+        </div>
+        <div class="d3">
+             <img class="pimge" src="/res/product/{{products[6][3]}}" onclick="detail({{products[6][0]}})">
+             <br>{{ products[6][1] }}
+        </div>
+        <div class="d3">
+            <img class="pimge" src="../../res/product/{{products[7][3]}}" onclick="detail({{products[7][0]}})">
+            <br>{{ products[7][1] }}
+        </div>
+        <div style="clear:both"></div>
+    </div>
+</div>
+
+{% include 'product_foot.html' %}
+</body>
+</html>

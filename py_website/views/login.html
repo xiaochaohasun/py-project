@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+     body ,* {
+        margin:0 auto;
+        padding:0;
+    }
+    #base{
+        width:350px;
+        height:200px;
+        border:1px solid green;
+        overflow:hidden;
+        }
+    #title{
+        text-align:center;
+        overflow:hidden;
+        }
+    .bn{
+        background-color:red;
+        width:100px;
+        height:30px;
+        font-size:20px;
+        color:black;
+        text-align:center;
+        }
+    .msg{
+        color:red;
+        font-size:20px;
+    }
+    #titile{
+        color:green;
+        text-align:center;
+        font-size:60px;
+     }
+</style>
+<script>
+    function myclick(){
+        //alert('aa');
+        document.all.fm.submit();
+    }
+
+</script>
+</head>
+<body>
+<div id="titile"><span id="subject">Welcome to my PY Website</span><br></div>
+
+<div id="base">
+<span class="msg">{{msg}}</span>
+<form id="fm" method="post">
+    <input type="hidden" name="second" value="1">
+
+    username:<input type="text" name="cname"><br><br>
+    password:<input type="text" name="cpwd"><br><br>
+
+    <div class="bn" onclick="myclick()">login</div>
+    <div class="title"></div><br><br>
+        没有账号?现在去<a href="views/regist.html">注册</a>
+</form>
+</div>
+
+</body>
+</html>
